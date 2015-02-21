@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".AndroidExplorer"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/abc_search_view_text_min_width"
+        android:id="@+id/topPanel"
+        android:background="@color/accent_material_light">
+
+        <ImageView
+            android:layout_width="@dimen/abc_text_size_display_3_material"
+            android:layout_height="@dimen/abc_text_size_display_3_material"
+            android:background="@color/accent_material_light"
+            android:id="@+id/logo"
+            android:src="@drawable/launcher"
+            android:layout_marginTop="@dimen/abc_action_bar_subtitle_bottom_margin_material"
+            android:layout_marginLeft="@dimen/abc_action_bar_subtitle_bottom_margin_material"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/abc_text_size_large_material"
+            android:textColor="#ffffff"
+            android:padding="@dimen/abc_control_inset_material"
+            android:layout_marginTop="@dimen/abc_text_size_caption_material"
+            android:text="#TapToRap"
+
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/logo" />
+        <ImageButton
+            android:layout_width="@dimen/abc_text_size_display_3_material"
+            android:layout_height="@dimen/abc_text_size_display_3_material"
+            android:src="@drawable/iicon"
+         android:background="@color/accent_material_light"
+
+android:id="@+id/about1"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/abc_text_size_body_2_material"
+            android:textColor="#ffffff"
+            android:id="@+id/songName"
+            android:marqueeRepeatLimit="@integer/abc_max_action_buttons"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/abc_action_bar_icon_vertical_padding_material"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/btnPause1"
+            android:paddingRight="@dimen/abc_text_size_display_4_material"
+            android:padding="@dimen/abc_action_bar_subtitle_bottom_margin_material"
+            android:text="SongName"
+            android:singleLine="true"
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPlay1"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/abc_action_bar_icon_vertical_padding_material"
+            android:background="@android:color/transparent"
+            android:src="@drawable/play"
+            android:layout_marginBottom="@dimen/abc_action_bar_subtitle_top_margin_material"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPause1"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/abc_action_bar_icon_vertical_padding_material"
+            android:background="@android:color/transparent"
+            android:src="@drawable/pause"
+            android:layout_marginBottom="@dimen/abc_action_bar_subtitle_top_margin_material"/>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:translationZ="5dp"
+        android:layout_below="@+id/topPanel"
+        android:textColor="#111111" >
+
+    </ListView>
+
+
+
+</RelativeLayout>

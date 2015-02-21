@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sony.mixx" >
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+    <uses-sdk
+    android:minSdkVersion="15"
+    android:targetSdkVersion="21" />
+    <receiver android:name=".RemoteControlReciever">
+     <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+     </intent-filter>
+    </receiver>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/launcher"
+        android:label="#TapToRap"
+        android:theme="@style/AppTheme" >
+          <activity
+            android:name=".MainActivity"
+            android:label="#TapToRap" >
+          </activity>
+          <activity
+            android:launchMode="singleTask"
+            android:alwaysRetainTaskState="true"
+            android:name=".Window"
+            android:label="Now Playing" >
+          </activity>
+          <activity
+            android:name=".AboutIntent" >
+          </activity>
+          <activity android:name=".splash">
+            <intent-filter>
+                   <action android:name="android.intent.action.MAIN" />
+                   <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+          </activity>
+    </application>
+</manifest>
