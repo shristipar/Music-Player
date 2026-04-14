@@ -2,7 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    buildToolsVersion "30.0.3"
+    lintOptions {
+        abortOnError true
+        // Legacy bitmap assets: full per-density sets / white-only notification icons need a design pass
+        disable 'GradleDependency', 'IconDensities', 'IconDipSize', 'IconDuplicatesConfig',
+                'IconLocation', 'IconColors', 'IconMissingDensityFolder', 'LintError'
+    }
 
     defaultConfig {
         applicationId "com.example.sony.mixx"

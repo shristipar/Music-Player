@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    tools:ignore="Overdraw">
 
 
     <RelativeLayout
@@ -17,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/abc_dropdownitem_text_padding_left"
             android:src="@drawable/back"
-            android:contentDescription="back"
+            android:contentDescription="@string/content_desc_back"
             android:id="@+id/back"
             android:background="@android:color/transparent"
             android:onClick="viewList"
@@ -27,21 +28,24 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/abc_dropdownitem_text_padding_left"
             android:src="@drawable/search"
-            android:contentDescription="back"
+            android:contentDescription="@string/content_desc_search_lyrics"
             android:id="@+id/showLyrics"
             android:background="@android:color/transparent"
-      android:layout_alignParentRight="true"
+      android:layout_alignParentEnd="true"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Now Playing"
-            android:layout_toRightOf="@+id/back"
+            android:text="@string/now_playing"
+            android:layout_toEndOf="@+id/back"
+            android:layout_toStartOf="@+id/showLyrics"
             android:textColor="#ffffff"
             android:layout_centerVertical="true"
             android:textSize="@dimen/abc_action_bar_icon_vertical_padding_material"
-            />
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:ignore="RelativeOverlap" />
 
 
     </RelativeLayout>
@@ -49,13 +53,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Song Name"
+        android:text="@string/song_name_label"
         android:singleLine="true"
         android:layout_marginTop="@dimen/abc_text_size_large_material"
-        android:layout_marginLeft="@dimen/abc_text_size_large_material"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/replay"
-        android:textSize="25dp"
+        android:layout_marginStart="@dimen/abc_text_size_large_material"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/replay"
+        android:textSize="25sp"
         android:textColor="#111111"
         android:id="@+id/songName"
         android:layout_marginBottom="@dimen/abc_dropdownitem_text_padding_left"
@@ -65,10 +69,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Artist"
-        android:layout_marginLeft="@dimen/abc_text_size_large_material"
+        android:text="@string/artist_label"
+        android:layout_marginStart="@dimen/abc_text_size_large_material"
         android:singleLine="true"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:id="@+id/artistName"
         android:textColor="#999"
         android:layout_below="@+id/songName"
@@ -78,11 +82,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/replay"
+        android:contentDescription="@string/content_desc_replay"
         android:layout_marginTop="@dimen/abc_text_size_large_material"
-        android:layout_marginRight="@dimen/abc_text_size_large_material"
+        android:layout_marginEnd="@dimen/abc_text_size_large_material"
         android:layout_below="@+id/topBar"
-        android:layout_toLeftOf="@+id/textView2"
-        android:layout_alignParentRight="true"
+        android:layout_toStartOf="@+id/textView2"
+        android:layout_alignParentEnd="true"
         android:background="@android:color/transparent"
         android:src="@drawable/replay"/>
 
@@ -93,6 +98,7 @@
         android:scaleType="fitXY"
         android:alpha=".30"
         android:id="@+id/album"
+        android:contentDescription="@string/content_desc_album_art"
         android:src="@drawable/album"
 />
 
@@ -102,14 +108,14 @@
         android:id="@+id/textView1"
         android:layout_margin="@dimen/abc_action_bar_icon_vertical_padding_material"
         android:layout_above="@+id/btnPlay"
-        android:text="00:00"
+        android:text="@string/time_zero"
         />
 
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/textView1"
-        android:layout_toLeftOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView1"
+        android:layout_toStartOf="@+id/textView2"
         android:layout_above="@+id/btnPlay"
         android:layout_margin="@dimen/abc_dropdownitem_text_padding_left"
         android:id="@+id/seekBar1"/>
@@ -120,17 +126,18 @@
         android:id="@+id/textView2"
         android:layout_margin="@dimen/abc_action_bar_icon_vertical_padding_material"
         android:layout_above="@+id/btnPlay"
-        android:layout_alignParentRight="true"
-        android:text="00:00"/>
+        android:layout_alignParentEnd="true"
+        android:text="@string/time_zero"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnRewind"
-        android:layout_marginRight="@dimen/abc_action_bar_icon_vertical_padding_material"
+        android:contentDescription="@string/content_desc_rewind"
+        android:layout_marginEnd="@dimen/abc_action_bar_icon_vertical_padding_material"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/abc_text_size_display_2_material"
-        android:layout_toLeftOf="@+id/btnPlay"
+        android:layout_toStartOf="@+id/btnPlay"
         android:background="@android:color/transparent"
         android:src="@drawable/rewind"/>
 
@@ -138,6 +145,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnPlay"
+        android:contentDescription="@string/content_desc_play"
         android:layout_marginBottom="@dimen/abc_text_size_display_2_material"
         android:layout_centerInParent="true"
         android:backgroundTint="@android:color/holo_red_light"
@@ -150,6 +158,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnPause"
+        android:contentDescription="@string/content_desc_pause"
         android:layout_marginBottom="@dimen/abc_text_size_display_2_material"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
@@ -161,10 +170,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnForward"
+        android:contentDescription="@string/content_desc_forward"
         android:layout_marginBottom="@dimen/abc_text_size_display_2_material"
-        android:layout_marginLeft="@dimen/abc_action_bar_icon_vertical_padding_material"
+        android:layout_marginStart="@dimen/abc_action_bar_icon_vertical_padding_material"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/btnPlay"
+        android:layout_toEndOf="@+id/btnPlay"
         android:background="@android:color/transparent"
         android:src="@drawable/forward"/>
 

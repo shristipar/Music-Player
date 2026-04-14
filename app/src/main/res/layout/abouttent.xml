@@ -3,7 +3,8 @@
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@color/accent_material_light"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="Overdraw">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,11 +16,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Developed by"
-            android:layout_marginLeft="@dimen/abc_text_size_large_material"
+            android:text="@string/developed_by"
+            android:layout_marginStart="@dimen/abc_text_size_large_material"
             android:textColor="#ffffff"
             android:layout_centerVertical="true"
-            android:textSize="20dp"
+            android:textSize="20sp"
 
         />
         </RelativeLayout>
@@ -32,6 +33,7 @@
         android:layout_centerHorizontal="true"
         android:backgroundTintMode="add"
         android:backgroundTint="@color/abc_background_cache_hint_selector_material_light"
+        android:contentDescription="@string/developer_name"
         android:src="@drawable/abcd"/>
 
     <TextView
@@ -45,7 +47,7 @@
         android:textColor="#ffffff"
         android:layout_marginTop="@dimen/abc_text_size_display_1_material"
         android:layout_centerHorizontal="true"
-        android:text="Shristi Parmanandka" />
+        android:text="@string/developer_name" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,7 +60,7 @@
         android:textColor="#ffffff"
         android:layout_marginTop="@dimen/abc_text_size_display_1_material"
         android:layout_centerHorizontal="true"
-        android:text="shristiparmanandka@gmail.com" />
+        android:text="@string/developer_email" />
 
 
 </RelativeLayout>

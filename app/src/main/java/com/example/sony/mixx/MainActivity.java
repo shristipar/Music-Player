@@ -124,12 +124,13 @@ public class MainActivity extends ListActivity {
         File fpa[];
         fp = new File(root);
         fpa = fp.listFiles();
+        if (fpa != null) {
         for (int i = 0; i < fpa.length; i++) {
             file1 = fpa[i];
             if (file1.isDirectory() && file1.canRead()) {
                 dir(file1.getPath());
             }
-        }
+        }}
         item2 = new ArrayList<String>();
         for (int i = 0; i < songlength; i++) {
             songname = songlist[i];
@@ -234,7 +235,7 @@ public class MainActivity extends ListActivity {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("key", myPath);
         editor.putInt("pos",pos);
-        editor.commit();
+        editor.apply();
         mBuilder.setContentText(sname.getText());
         mNotificationManager.notify(notificationID,mBuilder.build());
 
@@ -255,8 +256,10 @@ public class MainActivity extends ListActivity {
             sPause.setEnabled(true);
             sPlay.setVisibility(View.INVISIBLE);
             sPause.setVisibility(View.VISIBLE);
-            int s = myPath.lastIndexOf("/");
-            sname.setText(myPath.substring((s + 1), (myPath.length() - 4)));
+            if (myPath != null) {
+                int s = myPath.lastIndexOf("/");
+                sname.setText(myPath.substring((s + 1), (myPath.length() - 4)));
+            }
         }
 
         if(Window.isPlayflag==0){
@@ -264,13 +267,16 @@ public class MainActivity extends ListActivity {
             sPlay.setVisibility(View.VISIBLE);
             sPause.setVisibility(View.INVISIBLE);
             try {
-                int s = myPath.lastIndexOf("/");
-                sname.setText(myPath.substring((s + 1), (myPath.length() - 4)));
-
+                if (myPath != null) {
+                    int s = myPath.lastIndexOf("/");
+                    sname.setText(myPath.substring((s + 1), (myPath.length() - 4)));
+                }
             } catch (Exception e) {
-                myPath = songlist[0];
-                int s = myPath.lastIndexOf("/");
-                sname.setText(myPath.substring((s + 1), (myPath.length() - 4)));
+                if (songlist.length > 0 && songlist[0] != null) {
+                    myPath = songlist[0];
+                    int s = myPath.lastIndexOf("/");
+                    sname.setText(myPath.substring((s + 1), (myPath.length() - 4)));
+                }
             }
             mNotificationManager =
                     (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -300,7 +306,7 @@ public class MainActivity extends ListActivity {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("key", myPath);
         editor.putInt("pos",pos);
-        editor.commit();
+        editor.apply();
     }
 
    @Override
